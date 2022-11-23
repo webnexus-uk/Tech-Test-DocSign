@@ -1,0 +1,12 @@
+::ng-deep {
+  .NgxEditor__Wrapper {
+    width: 100%;
+    margin: 0 15px 15px;
+  }
+  .NgxEditor__Content {
+    height: 350px;
+  }
+  .NgxEditor {
+    overflow-y: scroll;
+  }
+}

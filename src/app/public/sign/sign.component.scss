@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap");
+
+.document {
+  border: 0.5px solid #000;
+  padding: 10px;
+  margin-top: 15px;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.ui.container {
+  margin: 15px 0;
+}
+
+.signature {
+  font-family: "Mr Dafoe", cursive;
+  font-size: 40px;
+  color: #000;
+  border: 0.5px solid #000;
+  line-height: 60px;
+  min-height: 60px;
+  padding: 0 10px;
+  min-width: 300px;
+  display: block;
+}

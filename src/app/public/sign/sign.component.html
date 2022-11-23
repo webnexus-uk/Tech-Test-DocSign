@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <mat-icon>edit</mat-icon>
+  <span class="title" routerLink="/private">DocSign</span>
+</mat-toolbar>
+<div class="ui container">
+  <mat-card>
+    <mat-card-header
+      ><mat-card-title>Review & Sign document</mat-card-title></mat-card-header
+    >
+    <mat-card-content>
+      <div class="document" [innerHTML]="documentContent"></div>
+    </mat-card-content>
+    <mat-card-actions style="padding: 0 15px">
+      <div class="signature" [innerText]="signedBy"></div>
+      <div class="spacer"></div>
+      <form style="margin-top: 20px">
+        <mat-form-field>
+          <input
+            matInput
+            [disabled]="previouslySigned"
+            placeholder="Signature"
+            [(ngModel)]="signedBy"
+            name="signedBy"
+          />
+        </mat-form-field>
+        <button
+          [disabled]="signedBy == '' || previouslySigned"
+          mat-raised-button
+          color="primary"
+          (click)="signDocument()"
+          style="margin-bottom: 15px"
+        >
+          Sign
+        </button>
+      </form>
+    </mat-card-actions>
+  </mat-card>
+</div>

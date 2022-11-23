@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background-color: #dadada;
+  margin: 0;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ui {
+  &.segment:not(&.stacked) {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    box-shadow: none;
+  }
+}
+.mat-card,
+.mat-mdc-card {
+  border-radius: 0 !important;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mdc-button {
+  min-width: 150px !important;
+}
+
+.title {
+  padding-left: 10px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
