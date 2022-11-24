@@ -12,6 +12,7 @@ export class DocumentsService {
       recipientName: 'Tony Hensler',
       recipientEmail: 'info@webnexus.co.uk',
       dateSent: 1669214531000,
+      signedDate: 1669214531000,
       signedBy: 'Tony Hensler',
       signed: true,
       sent: true,

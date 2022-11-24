@@ -37,18 +37,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource(
       this.documentsService.getDocuments()
     );
-    this.dataSource.data.forEach((document) => {
-      if (document.sent) {
-        this.counts.sent++;
-      } else {
-        this.counts.unsent++;
-      }
-      if (document.signed) {
-        this.counts.signed++;
-      } else {
-        this.counts.unsigned++;
-      }
-    });
+    this.updateCounts();
   }
 
   ngAfterViewInit() {
@@ -67,6 +56,28 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   delete(index: number) {
     this.dataSource.data = this.documentsService.deleteDocument(index);
-    console.log(this.dataSource);
+    this.updateCounts();
+  }
+
+  updateCounts() {
+    this.counts = {
+      sent: 0,
+      signed: 0,
+      unsent: 0,
+      unsigned: 0,
+    };
+
+    this.dataSource.data.forEach((document) => {
+      if (document.sent) {
+        this.counts.sent++;
+      } else {
+        this.counts.unsent++;
+      }
+      if (document.signed) {
+        this.counts.signed++;
+      } else {
+        this.counts.unsigned++;
+      }
+    });
   }
 }

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Editor } from 'ngx-editor';
 import { Subscription } from 'rxjs';
+import { IDocument } from 'src/app/shared/interfaces/document';
 import { DocumentsService } from 'src/app/shared/services/documents.service';
 
 @Component({
@@ -24,6 +25,7 @@ export class DocumentComponent implements OnInit, OnDestroy {
   publicLink: string = '';
   id: number = 0;
   routeSub!: Subscription;
+  document: IDocument | undefined;
 
   constructor(
     private documentsService: DocumentsService,
@@ -36,7 +38,10 @@ export class DocumentComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.params.subscribe((params) => {
       this.id = params['id'];
       this.documentForm.patchValue(this.documentsService.getDocument(this.id));
-      console.log(this.documentForm.value);
+      this.document = this.documentsService.getDocument(this.id);
+      if (this.document.signed) {
+        this.documentForm.disable();
+      }
     });
     this.edit = !this.router.url.includes('create');
     this.editor = new Editor();
